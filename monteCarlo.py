@@ -26,4 +26,4 @@ pi = comm.reduce(piBuffer, root=0)
 
 if oRank == 0:
     error = abs(pi - numpy.pi)
-    print("pi is approximately %.16f, error is %.16f" % (pi, error))
+    print("pi: %.16f, erro: %.16f" % (pi, error))
