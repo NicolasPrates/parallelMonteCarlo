@@ -20,10 +20,11 @@ else:
     n = None
 n = comm.scatter(n, root=0)
 
-piBuffer = paralelo_pi(n) / processadores
+piBuffer = paralelo_pi(n)
 
-pi = comm.reduce(piBuffer, root=0)
+somaPi = comm.reduce(piBuffer, root=0) 
 
 if oRank == 0:
+    pi = somaPi / processadores
     error = abs(pi - numpy.pi)
     print("pi: %.16f, erro: %.16f" % (pi, error))
